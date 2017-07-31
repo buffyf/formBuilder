@@ -85,16 +85,83 @@ let formData = [
 // HINTS:
 // As you can see, we access the first element in the array
 // with [0] and then grab the property "label" using the "." operator
-( function(){
+(function () {
   // Select the first element from the array
-  let first = formData[ 0 ];
+  let first = formData[0];
   // Log the first object
-  console.log( first );
+  console.log(first);
   // Log the string "First Name"
-  console.log( first.label );
-} )();
+  console.log(first.label);
+})();
 
 
 // -------- Your Code Goes Below this Line --------
+
+
+
+let fields = document.querySelector("#fields");
+
+
+for (i = 0; i < formData.length; i++) {
+  if (formData[i].type === 'text') {
+
+    let input = document.createElement('input');
+    input.setAttribute('type', formData[i].type);
+    input.setAttribute('placeholder', formData[i].label);
+    input.setAttribute('id', formData[i].id);
+    input.setAttribute('class', formData[i].icon);
+    fields.appendChild(input);
+  }
+  else if (formData[i].type === 'tel') {
+
+    let input = document.createElement('input');
+    input.setAttribute('type', formData[i].type);
+    input.setAttribute('placeholder', formData[i].label);
+    input.setAttribute('id', formData[i].id);
+    input.setAttribute('class', formData[i].icon);
+    fields.appendChild(input);
+  }
+  else if (formData[i].type === 'email') {
+
+    let input = document.createElement('input');
+    input.setAttribute('type', formData[i].type);
+    input.setAttribute('placeholder', formData[i].label);
+    input.setAttribute('id', formData[i].id);
+    input.setAttribute('class', formData[i].icon);
+    fields.appendChild(input);
+  }
+  else if (formData[i].type === 'select') {
+
+    let select = document.createElement("select");
+    select.setAttribute('type', formData[i].type);
+    select.setAttribute('placeholder', formData[i].label);
+    select.setAttribute('id', formData[i].id);
+    select.setAttribute('class', formData[i].icon);
+
+    for (j = 0; j < formData[i].options.length; j++) {
+
+      let options = document.createElement('option');
+
+      options.setAttribute('value', formData[i].options[j].value);
+      options.textContent = formData[i].options[j].label;
+      select.appendChild(options);
+
+    }
+    fields.appendChild(select);
+  }
+  else {
+
+    let textarea = document.createElement('textarea');
+
+    textarea.setAttribute('type', formData[i].type);
+    textarea.setAttribute('placeholder', formData[i].label);
+    textarea.setAttribute('id', formData[i].id);
+    textarea.setAttribute('class', formData[i].icon);
+    textarea.setAttribute('cols', 30);
+    textarea.setAttribute('rows', 10);
+
+    fields.appendChild(textarea);
+  }
+}
 
 
