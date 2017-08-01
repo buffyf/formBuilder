@@ -38,6 +38,11 @@ let formData = [
     "icon": "",
     "options": [
       {
+        "label": "Select language...",
+        "value": "null"
+
+      },
+      {
         "label": "English",
         "value": "EN"
       },
@@ -99,6 +104,15 @@ let formData = [
 
 
 
+let fontAwesome = document.querySelector("head");
+let link = document.createElement("link");
+link.setAttribute("rel", "stylesheet");
+link.setAttribute("href", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+
+
+fontAwesome.appendChild(link);
+
+
 let fields = document.querySelector("#fields");
 
 
@@ -110,6 +124,7 @@ for (i = 0; i < formData.length; i++) {
     input.setAttribute('placeholder', formData[i].label);
     input.setAttribute('id', formData[i].id);
     input.setAttribute('class', formData[i].icon);
+
     fields.appendChild(input);
   }
   else if (formData[i].type === 'tel') {
@@ -157,8 +172,8 @@ for (i = 0; i < formData.length; i++) {
     textarea.setAttribute('placeholder', formData[i].label);
     textarea.setAttribute('id', formData[i].id);
     textarea.setAttribute('class', formData[i].icon);
-    textarea.setAttribute('cols', 30);
-    textarea.setAttribute('rows', 10);
+    // tex
+    textarea.style = "padding: 7px";
 
     fields.appendChild(textarea);
   }
